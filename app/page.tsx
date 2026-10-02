@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { TourCard } from "@/components/TourCard";
-import { BlogCard } from "@/components/BlogCard";
-import { categorizeTours, getPosts, getServices, imageOf, matchText } from "@/lib/api";
+import { TourCard } from "../components/TourCard";
+import { BlogCard } from "../components/BlogCard";
+import { categorizeTours, getPosts, getServices, imageOf, matchText } from "../lib/api";
 
 export const revalidate = 120;
 

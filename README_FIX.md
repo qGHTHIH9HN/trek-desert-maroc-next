@@ -1,13 +1,20 @@
-# Trek Desert Maroc Missing Files Fix
+# Trek Desert Maroc Relative Imports Fix
 
-Upload these files to the ROOT of your GitHub repository:
+This package removes all `@/` imports and uses simple relative imports instead.
 
-- lib/api.ts
-- components/TourCard.tsx
+It fixes builds where Vercel still cannot resolve:
+- @/lib/api
+- @/components/TourCard
+- @/components/BlogCard
+
+Upload/replace these files in GitHub:
+- app/page.tsx
+- app/tours/page.tsx
+- app/blog/page.tsx
+- app/blog/[slug]/page.tsx
+- app/tour/[slug]/page.tsx
 - components/BlogCard.tsx
+- components/TourCard.tsx
 - tsconfig.json
 
-These fix the Vercel build errors:
-- Cannot resolve '@/lib/api'
-- Cannot resolve '@/components/TourCard'
-- Cannot resolve '@/components/BlogCard'
+After commit, redeploy on Vercel with cache cleared.

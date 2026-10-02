@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AnyItem, blogUrl, clean, imageOf } from "@/lib/api";
+import { AnyItem, blogUrl, clean, imageOf } from "../lib/api";
 
 export function BlogCard({ post }: { post: AnyItem }) {
   return (

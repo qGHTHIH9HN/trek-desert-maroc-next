@@ -1,5 +1,5 @@
-import { TourCard } from "@/components/TourCard";
-import { categorizeTours, getServices } from "@/lib/api";
+import { TourCard } from "../../components/TourCard";
+import { categorizeTours, getServices } from "../../lib/api";
 
 export const revalidate = 120;
 export const metadata = { title: "Treks au Maroc | Trek Desert Maroc" };

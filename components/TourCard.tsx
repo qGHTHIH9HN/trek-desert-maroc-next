@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AnyItem, clean, departureOf, durationOf, imageOf, priceOf, serviceUrl } from "@/lib/api";
+import { AnyItem, clean, departureOf, durationOf, imageOf, priceOf, serviceUrl } from "../lib/api";
 
 export function TourCard({ tour, index }: { tour: AnyItem; index?: number }) {
   return (

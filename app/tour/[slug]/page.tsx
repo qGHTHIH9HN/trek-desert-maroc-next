@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { clean, departureOf, durationOf, getService, imageOf, priceOf } from "@/lib/api";
+import { clean, departureOf, durationOf, getService, imageOf, priceOf } from "../../../lib/api";
 
 type Props = { params: Promise<{ slug: string }> };
 export const revalidate = 120;

@@ -1,5 +1,5 @@
-import { BlogCard } from "@/components/BlogCard";
-import { getPosts, matchText } from "@/lib/api";
+import { BlogCard } from "../../components/BlogCard";
+import { getPosts, matchText } from "../../lib/api";
 
 export const revalidate = 120;
 export const metadata = { title: "Blog Trek Maroc | Trek Desert Maroc" };
