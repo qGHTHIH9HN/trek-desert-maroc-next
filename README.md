@@ -1,73 +1,41 @@
-# Trek Desert Maroc — Clean Next.js Project
+# Trek Desert Maroc — Next.js Trekking Design V2
 
-This is a new clean GitHub/Vercel project for **Trek Desert Maroc**.
-It does not edit the DesertBrise Travel frontend.
+This is a real Next.js project using JSX.
 
-## Purpose
+It is designed specifically for a trekking brand, not a generic travel site.
 
-A trekking-specialist website focused on:
+## Design direction
 
-- Trek désert Maroc
-- Trek désert M’Hamid
-- Erg Chigaga trekking
-- Trek Sahara Maroc
-- Atlas and Toubkal trekking
-- Yoga trek / retreats
-- Scheduled departures
-- Private tailor-made treks
+- Trekking symbols
+- Desert and mountain visual backgrounds
+- Route map feeling
+- Walking information
+- Trek essentials
+- Scheduled departure blocks
+- Yoga trekking retreat section
+- More content even if the admin currently has only a few tours
 
-## Dynamic admin connection
+## Important
 
-The frontend reads content from the existing PHP admin/API through:
+This is not HTML-only.
+It is Next.js App Router.
 
-```env
-NEXT_PUBLIC_PHP_API_BASE=https://desertbrise-travel.com/public/api
-PHP_PUBLIC_BASE=https://desertbrise-travel.com/public
-```
+No TypeScript, so no TypeScript 7 build error.
 
-You can later change this to a Trek Desert Maroc-specific API if needed.
+## Upload to GitHub root
 
-## Upload to a new GitHub repo
+Root should contain:
 
-1. Create a new empty GitHub repository named:
+- app/
+- components/
+- lib/
+- package.json
+- next.config.mjs
+- jsconfig.json
 
-```text
-trek-desert-maroc-next
-```
+Delete old files if present:
 
-2. Upload all files from this ZIP into that repository.
-
-3. Import the repository in Vercel.
-
-4. Add environment variables:
-
-```env
-NEXT_PUBLIC_PHP_API_BASE=https://desertbrise-travel.com/public/api
-PHP_PUBLIC_BASE=https://desertbrise-travel.com/public
-NEXT_PUBLIC_SITE_URL=https://trekdesertmaroc.com
-```
-
-5. Deploy.
-
-## Pages included
-
-- `/` — trekking-focused homepage
-- `/tours` — trekking tours, scheduled departures, yoga retreats
-- `/tour/[slug]` — dynamic tour detail from PHP admin
-- `/blog` — trekking blog hub
-- `/blog/[slug]` — dynamic blog article
-- `/yoga-trek-retreat-maroc` — yoga + trekking retreat page
-- `/contact` — trip planning contact form
-
-## Admin fields recommended later
-
-For future scheduled departures, add these fields to each tour in the PHP admin/API:
-
-- `departure_type`: private / scheduled / planned
-- `next_departure`
-- `departure_dates`
-- `group_size`
-- `difficulty`
-- `walking_hours`
-- `region`
-- `tour_style`: desert_trek / atlas_trek / yoga_retreat / scheduled
+- tsconfig.json
+- package-lock.json
+- old .tsx files
+- static html files
