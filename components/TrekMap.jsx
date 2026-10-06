@@ -1,16 +1,10 @@
+import { SymbolIcon } from "./SymbolIcon";
 export function TrekMap() {
   return (
-    <div className="hero-map" aria-hidden="true">
-      <svg viewBox="0 0 450 320" fill="none">
-        <path d="M65 235 C110 190 150 208 184 168 C230 112 292 148 345 78" stroke="white" strokeWidth="3" strokeDasharray="8 10" opacity=".86" />
-        <circle cx="65" cy="235" r="8" fill="#d7a05e" />
-        <circle cx="184" cy="168" r="8" fill="#d7a05e" />
-        <circle cx="345" cy="78" r="8" fill="#d7a05e" />
-        <path d="M38 270 C96 238 132 260 190 220 C236 188 282 202 405 138" stroke="white" strokeWidth="1.2" opacity=".45" />
-        <text x="42" y="258" fill="white" fontSize="13" fontWeight="800">M'Hamid</text>
-        <text x="197" y="160" fill="white" fontSize="13" fontWeight="800">Erg Chigaga</text>
-        <text x="292" y="70" fill="white" fontSize="13" fontWeight="800">Atlas</text>
-      </svg>
+    <div className="trek-map-panel" aria-hidden="true">
+      <div className="map-title"><span>Route logic</span><strong>Sahara → Atlas → Retreats</strong></div>
+      <svg viewBox="0 0 520 360" fill="none"><path d="M56 285 C110 238 154 260 202 211 C248 164 295 185 343 132 C384 87 429 104 474 54" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeDasharray="10 12"/><path d="M40 310 C118 270 151 309 235 250 C305 200 350 218 486 154" stroke="currentColor" strokeWidth="1.4" opacity=".35"/><circle cx="56" cy="285" r="9" fill="currentColor"/><circle cx="202" cy="211" r="9" fill="currentColor"/><circle cx="343" cy="132" r="9" fill="currentColor"/><circle cx="474" cy="54" r="9" fill="currentColor"/></svg>
+      <div className="map-points"><div><SymbolIcon name="sun"/><span>M’Hamid</span></div><div><SymbolIcon name="camel"/><span>Erg Chigaga</span></div><div><SymbolIcon name="mountain"/><span>Atlas</span></div></div>
     </div>
   );
 }
