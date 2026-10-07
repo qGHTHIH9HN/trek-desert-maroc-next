@@ -1,0 +1,5 @@
+import { AtlasMap } from '../../../components/RouteMap';
+import { RouteListSection } from '../../../components/RouteSections';
+import { routes } from '../../../lib/routes';
+export const metadata={title:'Atlas Mountain Trekking Routes | Trek Desert Maroc'};
+export default function AtlasRoutesPage(){const atlas=routes.filter(r=>r.type==='atlas'||r.type==='mountain-desert');return <><section className="page-hero atlas-hero-small"><div className="container"><span className="eyebrow">Atlas & mountain routes</span><h1>High Atlas, Mgoun, Saghro and Siroua trekking network.</h1><p>Mountain trekking areas with village trails, passes, ridges, mule support, seasonal planning and connections between Atlas valleys and mountain-desert regions.</p></div></section><section className="section map-showcase"><div className="container"><AtlasMap/></div></section><RouteListSection title="Atlas and mountain route files" subtitle="Village trails, valleys, passes, Toubkal area, Mgoun region, Saghro and Siroua route foundations." routes={atlas}/></>}
