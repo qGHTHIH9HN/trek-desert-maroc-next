@@ -48,3 +48,44 @@ export function ElevationProfile({ route }) {
     </div>
   );
 }
+export function RouteMap({ route, landscape = "sahara" }) {
+  const fallbackRoute = route || {
+    title: landscape === "atlas" ? "Atlas Mountain Routes" : "Sahara Desert Routes",
+    region: landscape === "atlas" ? "High Atlas" : "Sahara Desert",
+    start: landscape === "atlas" ? "Imlil" : "M’Hamid",
+    finish: landscape === "atlas" ? "Trekking Route" : "Erg Chigaga",
+    routeLine:
+      landscape === "atlas"
+        ? ["Imlil", "Azzaden", "Toubkal", "Imlil"]
+        : ["M’Hamid", "Sidi Naji", "Erg Zahar", "Erg Smar", "Erg Chigaga"],
+    image: ""
+  };
+
+  return <RouteMapImage route={fallbackRoute} />;
+}
+
+export function SaharaMap({ compact = false }) {
+  const route = {
+    title: "Sahara Desert Route Map",
+    region: "Sahara Desert",
+    start: "M’Hamid",
+    finish: "Erg Chigaga",
+    routeLine: ["M’Hamid", "Sidi Naji", "Erg Zahar", "Erg Smar", "Erg Chigaga"],
+    image: ""
+  };
+
+  return <RouteMapImage route={route} compact={compact} />;
+}
+
+export function AtlasMap({ compact = false }) {
+  const route = {
+    title: "Atlas Mountain Route Map",
+    region: "High Atlas",
+    start: "Imlil",
+    finish: "Toubkal / Azzaden",
+    routeLine: ["Imlil", "Azzaden", "Toubkal", "Imlil"],
+    image: ""
+  };
+
+  return <RouteMapImage route={route} compact={compact} />;
+}
