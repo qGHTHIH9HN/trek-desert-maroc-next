@@ -1,0 +1,4 @@
+import { RegionCard, RouteListSection } from '../../components/RouteSections';
+import { regions, routes } from '../../lib/routes';
+export const metadata={title:'All Trekking Routes | Trek Desert Maroc'};
+export default function TreksPage(){return <><section className="page-hero"><div className="container"><span className="eyebrow">Route Atlas</span><h1>All Morocco trekking routes.</h1><p>A route database foundation for Sahara desert crossings, Atlas mountain trails, Saghro routes, Siroua routes, yoga walking retreats and custom trekking itineraries.</p></div></section><section className="section atlas-section"><div className="container"><div className="regions-grid">{regions.map(r=><RegionCard key={r.key} region={r}/>)}</div></div></section><RouteListSection title="Route files" subtitle="Every route has stages, terrain, support style, nights, best season and logistics." routes={routes}/></>}

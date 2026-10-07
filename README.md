@@ -1,25 +1,7 @@
-# Trek Desert Maroc — Top Trekking V3
+# Trek Desert Maroc — Route Atlas V4
 
-This is a real Next.js website using JSX.
+Real Next.js route-atlas platform foundation. Upload extracted files to GitHub root. Delete old .tsx files, tsconfig.json, package-lock.json, and old HTML files.
 
-Major upgrade:
-- New /treks page
-- New /treks/[slug] trek detail page
-- Day-by-day itinerary section
-- Trek facts: duration, level, terrain, walking hours
-- Support and nights section
-- Best season, who it is for, booking CTA
-- Desert and mountain visual design
-- Keeps old /tour/[slug] route too
+Main pages: /, /routes, /routes/sahara, /routes/atlas, /routes/[slug], /trekking-map, /trekking-guide, /contact.
 
-Upload the whole extracted package to GitHub root.
-
-Root must contain:
-- app/
-- components/
-- lib/
-- package.json
-- next.config.mjs
-- jsconfig.json
-
-Delete old .tsx files, tsconfig.json, package-lock.json.
+Route data is in lib/routes.js and is ready to scale toward 200+ route files.
