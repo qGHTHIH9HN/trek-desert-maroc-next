@@ -1,3 +1,20 @@
-import Link from 'next/link';
-import { Icon } from './Icons';
-export function Header(){return <header className="site-header"><div className="route-strip"><div className="container route-strip-inner"><span><Icon name="track"/> Morocco Trekking Route Atlas</span><span>M’Hamid → Foum Zguid</span><span>High Atlas</span><span>200+ route foundation</span></div></div><div className="container header-inner"><Link className="brand" href="/"><span className="brand-mark"><Icon name="compass"/></span><span>Trek Desert Maroc<small>Route Atlas for Morocco trekking</small></span></Link><nav className="nav"><Link href="/routes">Routes</Link><Link href="/routes/sahara">Sahara</Link><Link href="/routes/atlas">Atlas</Link><Link href="/trekking-map">Trekking Map</Link><Link href="/trekking-guide">Guide</Link><Link href="/contact">Plan</Link></nav></div></header>}
+import Link from "next/link";
+
+export function Header() {
+  return (
+    <header className="site-header">
+      <div className="container header-inner">
+        <Link href="/" className="brand">
+          <span className="brand-icon">△</span>
+          <span>Trek Desert Maroc<small>Trekking Routes Atlas</small></span>
+        </Link>
+        <nav className="nav">
+          <Link href="/routes">Routes</Link>
+          <Link href="/routes/mhamid-erg-zahar-erg-smar-erg-chigaga">M’Hamid Loop</Link>
+          <Link href="/trekking-map">Trekking Map</Link>
+          <Link href="/contact">Plan Your Trek</Link>
+        </nav>
+      </div>
+    </header>
+  );
+}

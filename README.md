@@ -1,7 +1,26 @@
-# Trek Desert Maroc — Route Atlas V4
+# Trek Desert Maroc V5 — Route Atlas Visual System
 
-Real Next.js route-atlas platform foundation. Upload extracted files to GitHub root. Delete old .tsx files, tsconfig.json, package-lock.json, and old HTML files.
+This is the first version built around the visual map direction you approved.
 
-Main pages: /, /routes, /routes/sahara, /routes/atlas, /routes/[slug], /trekking-map, /trekking-guide, /contact.
+Main route:
+- /routes/mhamid-erg-zahar-erg-smar-erg-chigaga
 
-Route data is in lib/routes.js and is ready to scale toward 200+ route files.
+Main features:
+- Satellite-style map image section
+- Route statistics
+- Day-by-day trekking stages
+- Elevation profile
+- Route cards
+- Prepared route data in lib/routes.js
+
+Upload as full replacement to GitHub root.
+
+Root should contain:
+- app/
+- components/
+- lib/
+- public/
+- package.json
+- next.config.mjs
+- jsconfig.json
+- README.md

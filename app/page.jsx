@@ -1,6 +1,43 @@
-import Link from 'next/link';
-import { SaharaMap, AtlasMap } from '../components/RouteMap';
-import { Icon } from '../components/Icons';
-import { RegionCard, RouteListSection } from '../components/RouteSections';
-import { featuredRoutes, regions } from '../lib/routes';
-export default function HomePage(){return <><section className="atlas-hero"><div className="container hero-grid"><div className="hero-copy"><span className="eyebrow">Morocco Trekking Route Atlas</span><h1>Not a tour list. A complete trekking route platform.</h1><p>Trek Desert Maroc should become a deep trekking website: Sahara corridors, Atlas mountain routes, route files, custom maps, daily stages, terrain, camps, logistics and eventually 200+ trekking routes.</p><div className="hero-actions"><Link className="btn btn-primary" href="/routes">Explore Route Atlas</Link><Link className="btn btn-secondary" href="/trekking-map">Open Trekking Map</Link></div><div className="hero-stats"><div><strong>200+</strong><span>route capacity</span></div><div><strong>4</strong><span>main trekking areas</span></div><div><strong>Route</strong><span>files, maps, stages</span></div></div></div><SaharaMap compact/></div></section><section className="section atlas-section"><div className="container"><div className="section-head"><div><span className="eyebrow">Core route areas</span><h2>Build the website around trekking territories.</h2></div><p>The site now starts from trekking areas: M’Hamid to Foum Zguid desert corridor, High Atlas/Toubkal, Central Atlas/Mgoun, and Saghro/Siroua mountain-desert trails.</p></div><div className="regions-grid">{regions.map(r=><RegionCard key={r.key} region={r}/>)}</div></div></section><section className="section map-showcase"><div className="container two-maps"><SaharaMap/><AtlasMap/></div></section><RouteListSection title="Featured route files" subtitle="These are the first route files. The structure is ready to grow into a 200+ route database." routes={featuredRoutes(6)}/><section className="section atlas-section"><div className="container"><div className="section-head"><div><span className="eyebrow">What each route file contains</span><h2>Information before booking.</h2></div><p>A serious trekking website should explain more than price: stage-by-stage route, terrain, support, walking hours, best season, logistics and who the route suits.</p></div><div className="feature-grid">{[['map','Custom route map','Illustrated map lines, camps, points and trekking corridors.'],['track','Stages','Day-by-day route rhythm with start, terrain and camp logic.'],['boot','Walking level','Difficulty, distance, daily walking hours and terrain type.'],['camel','Support','Camel, mule, guide, 4x4 logistics, camp and water planning.'],['photo','Photo-first design','Large desert and mountain panels instead of small generic icons.'],['compass','Nearby routes','Route files can connect into a bigger trekking network.']].map(([icon,t,txt])=><div className="feature-card" key={t}><Icon name={icon}/><h3>{t}</h3><p>{txt}</p></div>)}</div></div></section></>}
+import Link from "next/link";
+import { routes } from "../lib/routes";
+import { RouteCard } from "../components/RouteCard";
+import { RouteMapImage } from "../components/RouteMap";
+
+export default function HomePage() {
+  const mainRoute = routes[0];
+
+  return (
+    <>
+      <section className="home-hero">
+        <div className="container hero-grid">
+          <div>
+            <span className="eyebrow">Route Atlas Visual System</span>
+            <h1>M’Hamid desert trekking, mapped like a real expedition.</h1>
+            <p>
+              Trek Desert Maroc should become a route-atlas platform: satellite-style maps,
+              desert ground texture, waypoints, walking stages, elevation profiles and route files.
+            </p>
+            <div className="actions">
+              <Link className="btn primary" href={`/routes/${mainRoute.slug}`}>Open M’Hamid Loop</Link>
+              <Link className="btn secondary" href="/routes">View Routes</Link>
+            </div>
+          </div>
+          <RouteMapImage route={mainRoute} compact />
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">Main route file</span>
+            <h2>The map becomes the website, not decoration.</h2>
+            <p>Every future route should have a visual map, stage cards, profile, statistics, logistics and route notes.</p>
+          </div>
+          <div className="route-grid">
+            {routes.map(route => <RouteCard key={route.slug} route={route} />)}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

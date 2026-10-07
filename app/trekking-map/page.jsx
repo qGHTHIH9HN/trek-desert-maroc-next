@@ -1,5 +1,22 @@
-import { SaharaMap, AtlasMap } from '../../components/RouteMap';
-import { regions } from '../../lib/routes';
-import { RegionCard } from '../../components/RouteSections';
-export const metadata={title:'Morocco Trekking Map | Trek Desert Maroc'};
-export default function TrekkingMapPage(){return <><section className="page-hero"><div className="container"><span className="eyebrow">Custom trekking map</span><h1>Illustrated route maps, not Google Maps.</h1><p>The map style is designed for trekking: corridors, camps, stages, dunes, passes, camel routes, mule trails and region relationships.</p></div></section><section className="section map-showcase"><div className="container two-maps"><SaharaMap/><AtlasMap/></div></section><section className="section atlas-section"><div className="container"><div className="regions-grid">{regions.map(r=><RegionCard key={r.key} region={r}/>)}</div></div></section></>}
+import { routes } from "../../lib/routes";
+import { RouteMapImage } from "../../components/RouteMap";
+
+export default function TrekkingMapPage() {
+  const route = routes[0];
+  return (
+    <>
+      <section className="page-hero">
+        <div className="container">
+          <span className="eyebrow">Trekking map</span>
+          <h1>Map language for Trek Desert Maroc.</h1>
+          <p>This page shows the style direction: terrain-first, satellite-inspired, route-based and stage-focused.</p>
+        </div>
+      </section>
+      <section className="map-section">
+        <div className="container">
+          <RouteMapImage route={route} />
+        </div>
+      </section>
+    </>
+  );
+}

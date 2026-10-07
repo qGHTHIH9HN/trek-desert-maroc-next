@@ -1,6 +1,50 @@
-import { Icon } from './Icons';
-function Pin({x,y,label,type='camp'}){return <g><circle cx={x} cy={y} r="8" className={`map-dot ${type}`}/><text x={x+13} y={y+4} className="map-label">{label}</text></g>}
-export function SaharaMap({compact=false}){return <div className={`illustrated-map sahara-map ${compact?'map-compact':''}`}><div className="map-heading"><span><Icon name="camel"/> Sahara route corridor</span><strong>M’Hamid → Erg Chigaga → Iriki → Foum Zguid</strong></div><svg viewBox="0 0 900 520"><defs><pattern id="dunes" width="70" height="32" patternUnits="userSpaceOnUse"><path d="M0 24 C18 6 52 6 70 24" fill="none" stroke="rgba(255,255,255,.22)" strokeWidth="2"/></pattern></defs><rect width="900" height="520" fill="url(#dunes)" opacity=".75"/><path d="M75 360 C170 300 210 330 290 260 C370 190 435 250 520 178 C615 98 700 138 805 80" className="main-route"/><path d="M520 178 C625 215 690 270 810 333" className="return-route"/><path d="M570 245 C655 210 728 232 835 196" className="dry-lake"/><Pin x="75" y="360" label="M’Hamid" type="start"/><Pin x="245" y="285" label="Sidi Naji"/><Pin x="365" y="225" label="Erg Zahar" type="dune"/><Pin x="520" y="178" label="Erg Chigaga" type="dune"/><Pin x="650" y="240" label="Lake Iriki" type="lake"/><Pin x="805" y="80" label="Foum Zguid" type="end"/><text x="90" y="430" className="map-note">camel-supported walking stages</text><text x="600" y="310" className="map-note">dry lake / 4x4 exit zone</text></svg><Legend/></div>}
-export function AtlasMap({compact=false}){return <div className={`illustrated-map atlas-map ${compact?'map-compact':''}`}><div className="map-heading"><span><Icon name="mountain"/> Atlas trekking areas</span><strong>Imlil • Toubkal • Azzaden • Mgoun • Saghro • Siroua</strong></div><svg viewBox="0 0 900 520"><path d="M0 420 L120 270 L210 365 L335 165 L455 355 L570 135 L730 335 L900 190 L900 520 L0 520 Z" className="mountain-layer back"/><path d="M0 470 L135 315 L250 438 L395 245 L510 420 L650 220 L790 405 L900 295 L900 520 L0 520 Z" className="mountain-layer front"/><path d="M165 330 C245 295 310 330 385 275 C470 214 560 270 650 220" className="main-route"/><path d="M385 275 C470 350 555 356 700 308" className="return-route"/><Pin x="165" y="330" label="Imlil" type="start"/><Pin x="300" y="305" label="Azzaden"/><Pin x="385" y="275" label="Toubkal" type="dune"/><Pin x="650" y="220" label="Mgoun" type="end"/><Pin x="700" y="308" label="Saghro"/><Pin x="775" y="245" label="Siroua"/><text x="115" y="410" className="map-note">village trails / mule paths</text><text x="510" y="386" className="map-note">ridges, passes and valley crossings</text></svg><Legend/></div>}
-function Legend(){return <div className="map-legend"><span><i className="legend-dot start"/> start/end</span><span><i className="legend-line walk"/> walking track</span><span><i className="legend-line drive"/> logistics / 4x4</span><span><i className="legend-dot dune"/> dune or high area</span></div>}
-export function RouteMap({type}){return (type==='atlas'||type==='mountain-desert')?<AtlasMap/>:<SaharaMap/>}
+export function RouteMapImage({ route, compact = false }) {
+  if (route.image) {
+    return (
+      <figure className={compact ? "map-image compact" : "map-image"}>
+        <img src={route.image} alt={`${route.title} trekking route map`} />
+      </figure>
+    );
+  }
+
+  return (
+    <div className={compact ? "schematic-map compact" : "schematic-map"}>
+      <div className="map-title">
+        <span>{route.region}</span>
+        <strong>{route.start} → {route.finish}</strong>
+      </div>
+      <svg viewBox="0 0 900 520" aria-label={`${route.title} schematic map`}>
+        <path className="terrain-a" d="M0 400 C160 330 250 380 390 300 C550 215 660 285 840 195 C1010 110 1100 145 1200 85 L1200 620 L0 620 Z" />
+        <path className="terrain-b" d="M0 470 C185 410 290 470 468 380 C635 300 743 360 940 275 C1070 218 1135 230 1200 198 L1200 620 L0 620 Z" />
+        <path className="route-path" d="M90 355 C190 300 265 330 350 260 C470 165 610 260 710 160 C800 70 865 110 820 260 C760 405 520 395 390 440 C250 490 145 435 90 355" />
+        {route.routeLine.map((point, index) => {
+          const coords = [
+            [90,355],[250,300],[390,255],[540,260],[710,160],[805,245],[590,390],[90,355]
+          ];
+          const [x,y] = coords[index % coords.length];
+          return <g key={point}><circle cx={x} cy={y} r="10" /><text x={x + 16} y={y - 10}>{point}</text></g>;
+        })}
+      </svg>
+    </div>
+  );
+}
+
+export function ElevationProfile({ route }) {
+  return (
+    <div className="elevation">
+      <div className="elevation-head">
+        <strong>Route elevation profile</strong>
+        <span>Approximate ground feel, not GPS exact</span>
+      </div>
+      <svg viewBox="0 0 900 180" aria-label="Route elevation profile">
+        <path d="M20 135 C120 130 160 138 230 128 C310 112 355 95 430 98 C520 88 555 58 640 82 C730 98 790 86 880 118 L880 160 L20 160 Z" fill="rgba(180,85,50,.24)" />
+        <path d="M20 135 C120 130 160 138 230 128 C310 112 355 95 430 98 C520 88 555 58 640 82 C730 98 790 86 880 118" fill="none" stroke="#b45532" strokeWidth="4" />
+        {route.routeLine.slice(0, 7).map((p, i) => {
+          const xs = [60,210,350,470,620,750,850];
+          const ys = [130,125,107,95,67,92,112];
+          return <g key={p}><circle cx={xs[i]} cy={ys[i]} r="6" fill="#fff" stroke="#b45532" strokeWidth="3" /><text x={xs[i]-35} y={ys[i]-15}>{p}</text></g>;
+        })}
+      </svg>
+    </div>
+  );
+}

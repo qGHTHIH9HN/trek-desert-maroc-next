@@ -1,2 +1,12 @@
-import Link from 'next/link';
-export default function NotFound(){return <section className="section"><div className="container cta-panel"><div><span className="eyebrow">Route not found</span><h2>This route file is not in the atlas yet.</h2><p>Add it to the route database or choose another trekking route.</p></div><Link className="btn btn-primary" href="/routes">Back to route atlas</Link></div></section>}
+import Link from "next/link";
+
+export default function NotFound() {
+  return (
+    <section className="section">
+      <div className="container">
+        <h1>Route not found.</h1>
+        <Link className="btn primary" href="/routes">Back to routes</Link>
+      </div>
+    </section>
+  );
+}
