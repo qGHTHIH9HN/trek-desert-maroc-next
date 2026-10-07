@@ -4,7 +4,7 @@ import { fallbackTours, getServices, matches, mergeWithFallback } from "../../li
 
 export const revalidate = 120;
 
-export default async function ToursPage() {
+export default async function TreksPage() {
   const services = await getServices({ per_page: 100 });
   const all = mergeWithFallback(services, fallbackTours, 8);
   const sahara = all.filter((item) => matches(item, ["sahara", "desert", "mhamid", "chigaga", "nomad", "camel"]));

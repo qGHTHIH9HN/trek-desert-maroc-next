@@ -1,31 +1,20 @@
-# Trek Desert Maroc — Next.js Trekking Design V2
+# Trek Desert Maroc — Top Trekking V3
 
-This is a real Next.js project using JSX.
+This is a real Next.js website using JSX.
 
-It is designed specifically for a trekking brand, not a generic travel site.
+Major upgrade:
+- New /treks page
+- New /treks/[slug] trek detail page
+- Day-by-day itinerary section
+- Trek facts: duration, level, terrain, walking hours
+- Support and nights section
+- Best season, who it is for, booking CTA
+- Desert and mountain visual design
+- Keeps old /tour/[slug] route too
 
-## Design direction
+Upload the whole extracted package to GitHub root.
 
-- Trekking symbols
-- Desert and mountain visual backgrounds
-- Route map feeling
-- Walking information
-- Trek essentials
-- Scheduled departure blocks
-- Yoga trekking retreat section
-- More content even if the admin currently has only a few tours
-
-## Important
-
-This is not HTML-only.
-It is Next.js App Router.
-
-No TypeScript, so no TypeScript 7 build error.
-
-## Upload to GitHub root
-
-Root should contain:
-
+Root must contain:
 - app/
 - components/
 - lib/
@@ -33,9 +22,4 @@ Root should contain:
 - next.config.mjs
 - jsconfig.json
 
-Delete old files if present:
-
-- tsconfig.json
-- package-lock.json
-- old .tsx files
-- static html files
+Delete old .tsx files, tsconfig.json, package-lock.json.

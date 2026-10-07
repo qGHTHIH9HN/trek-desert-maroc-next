@@ -9,7 +9,7 @@ function fallbackBySlug(slug) {
   return fallbackTours.find((item) => item.slug === slug) || null;
 }
 
-export default async function TourDetailPage({ params }) {
+export default async function TrekDetailPage({ params }) {
   const { slug } = await params;
   const apiTour = await getService(slug);
   const fallbackTour = fallbackBySlug(slug);

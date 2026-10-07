@@ -18,35 +18,10 @@ export function Footer() {
               scheduled departures and yoga trekking retreats in Morocco.
             </p>
           </div>
-
-          <div>
-            <h4>Treks</h4>
-            <p>
-              <Link href="/tours">Sahara Treks</Link><br />
-              <Link href="/tours">Atlas Treks</Link><br />
-              <Link href="/tours">Scheduled Departures</Link>
-            </p>
-          </div>
-
-          <div>
-            <h4>Retreats</h4>
-            <p>
-              <Link href="/yoga-trek-retreat">Yoga Trek Retreat</Link><br />
-              <Link href="/tours">Private Programs</Link><br />
-              <Link href="/contact">Custom Request</Link>
-            </p>
-          </div>
-
-          <div>
-            <h4>Contact</h4>
-            <p>
-              <Link href="/contact">Plan your trek</Link><br />
-              <Link href="/blog">Read guides</Link><br />
-              Morocco trekking experts
-            </p>
-          </div>
+          <div><h4>Treks</h4><p><Link href="/treks">All Trek Pages</Link><br /><Link href="/treks">Sahara Treks</Link><br /><Link href="/treks">Atlas Treks</Link></p></div>
+          <div><h4>Retreats</h4><p><Link href="/yoga-trek-retreat">Yoga Trek Retreat</Link><br /><Link href="/treks">Private Programs</Link><br /><Link href="/contact">Custom Request</Link></p></div>
+          <div><h4>Contact</h4><p><Link href="/contact">Plan your trek</Link><br /><Link href="/blog">Read guides</Link><br />Morocco trekking experts</p></div>
         </div>
-
         <div className="footer-bottom">© Trek Desert Maroc. Next.js trekking website connected to the PHP admin API.</div>
       </div>
     </footer>
